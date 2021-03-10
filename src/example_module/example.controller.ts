@@ -6,6 +6,6 @@ export class ExampleController {
   
   @Get()
   public getToDoList() {
-    return "This is a get!"
+    return "<u>My ToDo List</u>";
   }
 }
