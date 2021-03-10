@@ -13,8 +13,8 @@ describe('ExampleController Test', () => {
   });
 
   describe('root', () => {
-    it('should return "This is a get!"', () => {
-      expect(exampleController.exampleGet()).toBe("This is a get!");
+    it('should return "<u>My ToDo List</u>"', () => {
+      expect(exampleController.getToDoList()).toBe("<u>My ToDo List</u>");
     });
   });
 });

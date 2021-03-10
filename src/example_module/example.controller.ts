@@ -1,11 +1,11 @@
 import { Controller, Get } from '@nestjs/common';
 
 
-@Controller('/exampleEndpoint1')
+@Controller()
 export class ExampleController {
   
-  @Get('/')
-  public exampleGet() {
+  @Get()
+  public getToDoList() {
     return "This is a get!"
   }
 }
