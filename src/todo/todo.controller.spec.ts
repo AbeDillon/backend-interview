@@ -14,7 +14,7 @@ describe('TodoController Test', () => {
 
   describe('root', () => {
     it('should return a list of todos', () => {
-      expect(exampleController.getTodoList()).toBe([]);
+      expect(exampleController.retrieveAll()).toBe([]);
     });
   });
 });

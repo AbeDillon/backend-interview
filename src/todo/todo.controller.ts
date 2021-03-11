@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { Todo } from './todo.entity';
 import { TodoService} from './todo.service';
 
@@ -7,7 +7,11 @@ import { TodoService} from './todo.service';
 export class TodoController {
   constructor(private todoService: TodoService) {}
   @Get()
-  public getTodoList(): Promise<Todo[]> {
+  public retrieveAll(): Promise<Todo[]> {
     return this.todoService.retrieveAll();
+  }
+  @Post('create')
+  async create(@Body() todo: Todo): Promise<Todo> {
+    return this.todoService.create(todo);
   }
 }
