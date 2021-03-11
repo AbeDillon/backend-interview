@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Put, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
 import { Todo } from './todo.entity';
 import { TodoService} from './todo.service';
-import { UpdateResult } from 'typeorm';
+import { UpdateResult, DeleteResult } from 'typeorm';
 
 @Controller()
 export class TodoController {
@@ -17,5 +17,9 @@ export class TodoController {
   @Put(':id/update')
   async update(@Param('id') id, @Body() todo: Todo): Promise<UpdateResult> {
     return this.todoService.update(todo);
+  }
+  @Delete(':id/delete')
+  async delete(@Param('id') id): Promise<DeleteResult> {
+    return this.todoService.delete(id);
   }
 }
