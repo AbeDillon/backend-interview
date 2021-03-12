@@ -5,17 +5,17 @@ export class Todo {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP"})
-  created: Date;
+  @Column({ default: () => Date.now()})
+  created: number;
 
-  @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP"})
-  updated: Date;
+  @Column({default: () => Date.now()})
+  updated: number;
 
   @Column()
   note: string
 
   @BeforeUpdate()
   updateTimestamp() {
-    this.updated = new Date;
+    this.updated = Date.now();
   }
 }
