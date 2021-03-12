@@ -1,7 +1,16 @@
 import { Module } from '@nestjs/common';
-import { ExampleModule } from './example_module/example.module';
+import { TodoModule } from './todo/todo.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [ExampleModule],
+  imports: [
+    TodoModule,
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: 'db',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true,
+    })
+  ],
 })
 export class AppModule {}
